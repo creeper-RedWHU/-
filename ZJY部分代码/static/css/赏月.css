@@ -1,0 +1,35 @@
+.background{
+    background-color:rgba(0,0,0,0.9);
+}
+/*容器宽度，导航栏*/
+.container{
+    width:80%;
+    margin: 20px auto;
+
+}
+.guide_line_font{
+    font-family: kaiti, serif;
+    color: white;
+    opacity: 0.5;
+
+}
+.guide_line_font:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.right{
+    float: right;
+}
+.clearfix{
+    clear: both;
+}
+.music_img{
+    text-align: center;height: 1em;float: right;
+    margin-right: 20px;
+}
+.music_img1{
+    display: inline;
+}
+.music_img:hover{
+    cursor: pointer;
+}
