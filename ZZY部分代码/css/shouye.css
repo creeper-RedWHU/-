@@ -1,0 +1,65 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+#quit {
+    float: left;
+    width: 150px;
+    margin: 20px;
+}
+
+.backimg {
+    width: 120px;
+}
+
+.ct {
+    position: absolute;
+    top: 13vh;
+}
+
+.cb {
+    position: absolute;
+    bottom: 8vh;
+}
+
+
+.cl {
+    position: absolute;
+    left: 8vw;
+}
+
+.cr {
+    position: absolute;
+    right: 5vw;
+}
+
+#word{
+    font-size: 80px;
+    font-family: 华文隶书;
+    font-weight: 100;
+    color: #b4795f;
+    height: 40vh;
+    text-align: center;
+    line-height: 40vh;
+    transform: translateX(-9%);
+}
+
+
+.imglist{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-3%);
+}
+.mooncake{
+    margin: 50px;
+}
+
+@media screen and (max-width: 848px) {
+    #word{
+        font-size: 60px;
+    }
+}
