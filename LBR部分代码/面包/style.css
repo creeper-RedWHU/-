@@ -1,0 +1,153 @@
+*
+{
+    padding :0;
+    margin :0;
+}
+header
+{
+    background-color: #231c1a;
+    height: 80px;
+    width: 100%;
+}
+header ul
+{
+    position:absolute;
+    right:5vw;
+    top:0; 
+    line-height: 80px;
+}
+h1
+{
+    color:white;
+    position: absolute;
+    left: 120px;
+    line-height: 80px;
+    background-image: url(images/Logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width:210px;
+    text-indent: -99999px;
+}
+header a
+{
+    color:white;
+    text-decoration: none;
+    border-radius: 5px;
+    border:1px;
+    padding: 5px 5px;
+}
+header li
+{
+    display:inline;
+    margin-right: 4vw;
+}
+header a:hover
+{
+    background-color: #359381;
+    color: #f9f9f9;
+}
+.c1
+{
+    background-color:antiquewhite;
+    color: #f9f9f9;
+    height: 30vh;
+    background-image: url(images/banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+}
+.c1 h2
+{
+    font-size: 60px;
+}
+.c1 p
+{
+    color:#fef7e6;
+    font-size:18px;
+    margin:25px 0;
+}
+.c1 a
+{
+    color: white;
+    text-decoration: none;
+    border:1px solid #acacac;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.c1 a:hover
+{
+    background-color: #f9f9f9;
+    color: #359381;
+}
+.c2
+{
+    background-color: #485652;
+    color: white;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    line-height: 1.8em;
+}
+footer
+{
+    background-color: #000000;
+    color: #b7b7b7;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+.c3
+{
+    display: flex;
+}
+.c3 img
+{
+    width: 50%;
+}
+.info
+{
+    width: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.info h2
+{
+    font-size: 40px;
+    margin-bottom: 30px;
+
+}
+.info p
+{
+    text-align: center;
+    line-height: 2em;
+}
+.product
+{
+    display: flex;
+    background-color: #ede9db;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px;
+}
+.product div
+{
+    width: 300px;
+
+}
+.product img
+{
+    width: 100%;
+    border-radius: 10px;
+}
