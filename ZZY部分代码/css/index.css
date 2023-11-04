@@ -1,0 +1,63 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/背景宽.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#return_key img{
+    width: 120px;
+}
+
+#head_word{
+    text-align: center;
+    font-size: 70px;
+    margin:40px;
+    font-family:'hdjxingshu3a356a5d68256d1';
+    color: #cda08c;
+    font-weight: 300;
+}
+
+#imglist{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 110px 0px 30px;
+    flex-direction: row;
+}
+
+#imglist li{
+    display: inline;
+}
+
+
+@media screen and (max-width: 970px) {
+    #imglist{
+        flex-direction: column;
+        text-align: center;
+    }
+    #container{
+        background-image: url("../img/背景窄.jpg");
+        height: auto;
+    }
+    #head_word{
+        font-size: 50px;
+    }
+    #addition_bottom{
+        height: 150px;
+    }
+    #addition_top{
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 500px){
+   #head_word{
+    font-size: 30px;
+   }
+}
