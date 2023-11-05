@@ -166,7 +166,7 @@ footer
 
 @media (max-width: 900px) {
     #moon {
-      top: -35vh; /* 调整这个值以改变 "moon" 的位置 */
+      top: -35vh;
     }
   }
   
