@@ -1,0 +1,76 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box  ;
+}
+header
+{
+    background:blue;
+}
+
+body 
+{
+    background-color: rgb(23, 142, 71);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.logo 
+{
+    margin-right: auto;
+    visibility: hidden;
+}
+.parallax
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.parallax img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+#moon 
+{
+    position: relative;
+    top:-15vh;
+    width: 600px; 
+    height: 600px; 
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#left1,#left2,#right1,#right2
+{
+    z-index: 1;
+} 
+
+/* #moon {
+    left: 40%;
+    top: 10vh;
+    width: 0;
+    height: 0; 
+    border-radius: 50%;
+    object-fit: cover;
+    animation: moonAppear 2s forwards; 
+}
+
+@keyframes moonAppear {
+    0% {
+        left: 40%;
+        width: 0;
+        height: 0; 
+    }
+    100% {
+        left: 40vh;
+        width: 600px; 
+        height: 600px; 
+    }
+} */
+
