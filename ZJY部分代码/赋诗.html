@@ -14,12 +14,12 @@
             <input type="text" id="writer_box" value="输入作者姓名">
             <textarea name="" id="textarea_submit" cols="30" rows="2" placeholder="请输入你的诗歌"
             wrap="hard"></textarea>
-            <input type="button" id="btn" value="生成明信片">
+            <input type="button" class="btn" id="btn" value="生成明信片">
         </div>
         <div class="container-fluid">
             <div class="history">作诗记录</div>
             <div class="ul clearfix history_box" >
-                <div class="li  img_none" id="text_area">
+                <div class="li" id="text_area">
                     <img src="img/icons8-alert-30.png" alt="" ><h2>当前还没有创作诗歌！</h2>
                 </div>
             </div>
@@ -29,6 +29,9 @@
                     <h1 id="h1">切换诗歌0/0
                     </h1>
                     <div class="next"><i id="next">></i></div>
+                </div>
+                <div class="clearfix history_box" >
+                <input type="button" class="btn" id="delete" value="删除诗歌">
                 </div>
             </div>
         </div>

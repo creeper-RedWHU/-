@@ -71,10 +71,8 @@ textarea:focus{
 #writer_box:focus{
     box-shadow:silver 0px 0px 10px;
 }
-#btn:hover{
-    box-shadow:black 0px 0px 10px;
-}
-#btn{
+
+.btn{
     padding: 10px;
     margin-left: 30px;
     float: right;
@@ -84,18 +82,19 @@ textarea:focus{
     cursor: pointer;
     background: white;
     display: block;
+    font-family: kaiti,serif;
+    font-size: 1.2em;
 }
-#btn:hover{
+.btn:hover{
     background: linear-gradient(90deg, #A163F7 25%, #6F88fc 50%, #45e3ff 75%, #F5F5DC 100%);
-
+    color: white;
+    box-shadow:black 0px 0px 10px;
 }
 .container{
     width: 70%;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 5%;
-
-
 }
 .history{
     margin-left: auto;
@@ -220,9 +219,11 @@ textarea:focus{
     transition: transform 1s ease-in-out;
     background: transparent;
 }
-.img_none{
-
+#delete{
+    float: right;
+    padding: 10px;
 }
+
 @media screen and (max-width: 970px) {
     #container{
         background-image: url("/img/背景窄.jpg");
