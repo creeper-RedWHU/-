@@ -141,7 +141,7 @@ textarea:focus{
 }
 .text{
     font-size: 1.4em;
-    font-family: kaiti,serif;
+    font-family: 'kaiti',serif;
     letter-spacing:3px;
     line-height: 2.1;
 }
@@ -199,12 +199,6 @@ textarea:focus{
     height: 100%;
     box-sizing: border-box;
     background: rgba(99, 99, 99, 0.8);
-}
-.shell_body {
-    width: 100%;
-    transform: scale(.8);
-    padding: 20px 0 150px 0;
-    position: relative;
 }
 .button_click{
     color: red;

@@ -34,7 +34,7 @@ writer_box.onblur = function (){
 }
 var writer_name = ''
 var title = '' //现存诗歌的标题
-var lst =[''] //现存诗歌的句子
+
 var ptr =1
 var name ='' //现存诗歌的诗人
 var history = [[0,0,0]] // 保存的诗歌：来做历史记录
@@ -46,23 +46,26 @@ var next = document.getElementById("next")
 var h1=document.getElementById("h1")
 var text_area = document.getElementById("text_area")
 btn.onclick = function (){
-    if(writer_box.value === ' ' || title_box.value===' ' || txt.value === '') {
+    if(writer_box.value === ' ' || title_box.value===' ' || txt.value === '' ) {
         alert('请输入数据！')
         title_box.value='输入你的标题'
         txt.value = ''
         writer_box.value = '输入作者姓名'
     }else {
+        var lst =[''] //现存诗歌的句子
+        var ptr_temporary = 0
         name = txt.value
         var tail = 0
         for (var i = 0; i < name.length; i++) {
-            if (name[i] === '\n' || name[i] === ',' || name[i] === '，') {
-                lst[ptr] = name.slice(tail, i)
+            if (name[i] === '\n' || name[i] === ',' || name[i] === '，' || name[i] === '。') {
+                lst[ptr_temporary] = name.slice(tail, i)
                 tail = i + 1
-                ptr += 1
+                ptr_temporary += 1
             }
         }
         title = title_box.value
-        lst[ptr] = name.slice(tail, name.length)
+        lst[ptr_temporary] = name.slice(tail, name.length)
+        lst=lst.filter(str => !!str)
         writer_name = writer_box.value
         title_box.value = '输入你的标题'
         txt.value = ''
@@ -70,14 +73,13 @@ btn.onclick = function (){
         history[history_ptr] = [title, writer_name, lst]
         ptr = history_ptr
         history_ptr += 1
-        var cache = history[history_ptr - 1]
+        var cache = history[ptr]
         text_area.innerHTML = '<h2>'+cache[0]+'</h2>'+
                             '<p style="float:right;width: 100%" class="writer_name">'
-                            +cache[1]+'</p>'+'<p class="text">'
+                            +cache[1]
         for(var j =0;j<cache[2].length;j++){
-            text_area.innerHTML += cache[2][j] + '<br>'
+            text_area.innerHTML += '<p class="text">'+cache[2][j]
         }
-        text_area.innerHTML += '</p>'
         h1.innerHTML = '切换诗歌'+(history_ptr-1).toString()+'/'+(history_ptr-1).toString()
     }
 }
@@ -87,32 +89,68 @@ back_button.onclick = function (){
 };
 /*prev:前调数据*/
 prev.onclick = function (){
+    if(history_ptr === 1){
+    }else {
     if(ptr >1){
         ptr -= 1
     }else{
         ptr = history_ptr-1
-    }var cache = history[ptr]
-    text_area.innerHTML = '<h2>'+cache[0]+'</h2>'+
-        '<p style="float:right;width: 100%" class="writer_name">'
-        +cache[1]+'</p>'+'<p class="text">'
-    for(var j =0;j<cache[2].length;j++){
-        text_area.innerHTML += cache[2][j] + '<br>'
     }
-    text_area.innerHTML += '</p>'
+    var cache = history[ptr]
+        text_area.innerHTML = '<h2>'+cache[0]+'</h2>'+
+                            '<p style="float:right;width: 100%" class="writer_name">'
+                            +cache[1]
+        for(var j =0;j<cache[2].length;j++){
+            text_area.innerHTML += '<p class="text">'+cache[2][j]
+        }
     h1.innerHTML = '切换诗歌'+(ptr).toString()+'/'+(history_ptr-1).toString()
+    }
 }
 next.onclick = function (){
-    if(ptr <history_ptr-1){
-        ptr += 1
-    }else{
-        ptr = 1
-    }var cache = history[ptr]
-    text_area.innerHTML = '<h2>'+cache[0]+'</h2>'+
-        '<p style="float:right;width: 100%" class="writer_name">'
-        +cache[1]+'</p>'+'<p class="text">'
-    for(var j =0;j<cache[2].length;j++){
-        text_area.innerHTML += cache[2][j] + '<br>'
+    if(history_ptr === 1){}
+    else {
+        if(ptr <history_ptr-1){
+            ptr += 1
+        }else{
+            ptr = 1
+        }
+         var cache = history[ptr]
+            text_area.innerHTML = '<h2>'+cache[0]+'</h2>'+
+                                '<p style="float:right;width: 100%" class="writer_name">'
+                                +cache[1]
+            for(var j =0;j<cache[2].length;j++){
+                text_area.innerHTML += '<p class="text">'+cache[2][j]
+            }
+        h1.innerHTML = '切换诗歌'+(ptr).toString()+'/'+(history_ptr-1).toString()
     }
-    text_area.innerHTML += '</p>'
-    h1.innerHTML = '切换诗歌'+(ptr).toString()+'/'+(history_ptr-1).toString()
 }
+var dele = document.getElementById("delete")
+dele.onclick = function (){
+    /*删除的是ptr位置的元素，就让后面的填充，然后修改history_ptr*/
+    if(history_ptr === 1){
+        alert('当前没有可供删除的历史记录')
+    }else if(ptr === history_ptr-1){
+        history_ptr-=1;ptr-=1
+        delete history[history_ptr]
+    }else{
+        for(var name =ptr;name<history_ptr-1;name++){
+            history[name] = history[name+1]
+        }
+        history_ptr-=1
+        delete history[history_ptr]
+    }
+    if(history_ptr>1) {
+        var cache = history[ptr]
+        text_area.innerHTML = '<h2>' + cache[0] + '</h2>' +
+            '<p style="float:right;width: 100%" class="writer_name">'
+            + cache[1] + '<p class="text">'+ cache[2][0]
+        for (var j = 0; j < cache[2].length; j++) {
+            text_area.innerHTML += '<p class="text">'+cache[2][j]
+        }
+        h1.innerHTML = '切换诗歌'+(ptr).toString()+'/'+(history_ptr-1).toString()
+    }else{
+        ptr = history_ptr = 1
+        text_area.innerHTML = '<img src="img/icons8-alert-30.png" alt="" ><h2>当前还没有创作诗歌！</h2>'
+        h1.innerHTML = '切换诗歌'+'0'+'/'+'0'
+    }
+    }
