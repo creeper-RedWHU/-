@@ -34,7 +34,6 @@ writer_box.onblur = function (){
 }
 var writer_name = ''
 var title = '' //现存诗歌的标题
-
 var ptr =1
 var name ='' //现存诗歌的诗人
 var history = [[0,0,0]] // 保存的诗歌：来做历史记录
@@ -77,7 +76,7 @@ btn.onclick = function (){
         history_ptr += 1
         var cache = history[ptr]
         text_area.innerHTML = '<h2>'+cache[0]+'</h2>'+
-                            '<p style="float:right;width: 100%" class="writer_name">'
+                            '<p style="float:right;width: 100%" class="writer_name">作者：'
                             +cache[1]
         for(var j =0;j<cache[2].length;j++){
             text_area.innerHTML += '<p class="text">'+cache[2][j]
