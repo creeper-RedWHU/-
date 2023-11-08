@@ -70,6 +70,8 @@ btn.onclick = function (){
         title_box.value = '输入你的标题'
         txt.value = ''
         writer_box.value = '输入作者姓名'
+        if(title === '输入你的标题'){title = '无题'}
+        if(writer_name === '输入作者姓名'){writer_name = '匿名'}
         history[history_ptr] = [title, writer_name, lst]
         ptr = history_ptr
         history_ptr += 1
@@ -154,3 +156,15 @@ dele.onclick = function (){
         h1.innerHTML = '切换诗歌'+'0'+'/'+'0'
     }
     }
+window.onload = function(){
+    setInterval("toggleSound()",100);
+}
+
+function toggleSound() {
+    var music = document.getElementById("vd");//获取ID
+
+    if (music.paused) { //判读是否播放
+        music.paused=false;
+        music.play(); //没有就播放
+    }
+}

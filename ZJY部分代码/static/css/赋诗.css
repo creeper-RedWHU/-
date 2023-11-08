@@ -143,7 +143,7 @@ textarea:focus{
     font-size: 1.4em;
     font-family: 'kaiti',serif;
     letter-spacing:3px;
-    line-height: 2.1;
+    line-height: 1.4;
 }
 .clearfix{
     clear: both;
@@ -217,6 +217,7 @@ textarea:focus{
     float: right;
     padding: 10px;
 }
+/*明信片部分*/
 
 @media screen and (max-width: 970px) {
     #container{
