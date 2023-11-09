@@ -2,15 +2,15 @@
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>赏月</title>
     <link rel="stylesheet" href="static\css\赏月.css">
-    <script src="static\vue\vue.js"></script>
+<!--    <script src="static/vue/vue.js"></script>-->
 </head>
 <body class="background">
     <div class="container clearfix" id="app">
         <a class="guide_line_font">看看月球</a>
-        <a class="guide_line_font right">看看月相</a>
-        <img src="static/img/music-off.png"
+        <a class="guide_line_font right" id="right">未来一周月相日历</a>
+        <img src="img/music-off.png"
              alt="This is an icon that decides whether to play music or not "
              class="music_img"
              id="img"/>
@@ -19,7 +19,7 @@
                autoplay="autoplay" id="audio"></audio>
 
     </div>
-
+<!--    月相日历部分-->
     <script src="static/js/赏月.js"></script>
 
 </body>
