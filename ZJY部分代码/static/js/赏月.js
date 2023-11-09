@@ -11,6 +11,10 @@ img_music.onclick = function (){
     }
     test = 1-test
 }
+const app =new Vue({
+    el:"#right",
+
+})
 
 
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>赋诗</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="static/css/赋诗.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <img src="img/返回键.png" alt="" id="back_button">
+        <div class="container">
+            <div style="text-align: center">
+                <input type="text" class="title_box" id="title_box" value="输入你的标题">
+            </div>
+            <input type="text" id="writer_box" value="输入作者姓名">
+            <textarea name="" id="textarea_submit" cols="30" rows="2" placeholder="请输入你的诗歌"
+            wrap="hard"></textarea>
+            <input type="button" class="btn" id="btn" value="生成明信片">
+        </div>
+        <div class="container-fluid">
+            <div class="history">作诗记录</div>
+            <div class="ul clearfix history_box" >
+                <div class="li" id="text_area">
+                    <img src="img/icons8-alert-30.png" alt=""><h2>当前还没有创作诗歌！</h2>
+                </div>
+            </div>
+            <div class="button">
+                <div class="prev"><i id="prev"><</i></div>
+                <h1 id="h1">切换诗歌0/0
+                </h1>
+                <div class="next"><i id="next">></i></div>
+            </div>
+            <div class="clearfix history_box" >
+                <input type="button" class="btn" id="delete" value="删除诗歌">
+            </div>
+        </div>
+    </div>
+    <audio src="static/music/1-水调歌头.mp3" loop="loop" autoplay="autoplay"
+    id="vd"></audio>
+<script src="static/js/赋诗.js"></script>
+</body>
+</html>
