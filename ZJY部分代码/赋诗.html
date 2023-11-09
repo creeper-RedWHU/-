@@ -10,16 +10,16 @@
     <div class="container-fluid">
         <img src="img/返回键.png" alt="" id="back_button">
         <div class="container">
-            <div style="text-align: center">
+            <div style="text-align: center;padding-top: 10%">
                 <input type="text" class="title_box" id="title_box" value="输入你的标题">
             </div>
             <input type="text" id="writer_box" value="输入作者姓名">
-            <textarea name="" id="textarea_submit" cols="30" rows="2" placeholder="请输入你的诗歌"
+            <textarea name="" id="textarea_submit" cols="30" rows="2" placeholder="请输入你的诗歌（非空）"
             wrap="hard"></textarea>
             <input type="button" class="btn" id="btn" value="生成明信片">
         </div>
         <div class="container-fluid">
-            <div class="history">作诗记录</div>
+            <div class="history" style="cursor: default">作诗记录</div>
             <div class="ul clearfix history_box" >
                 <div class="li" id="text_area">
                     <img src="img/icons8-alert-30.png" alt=""><h2>当前还没有创作诗歌！</h2>
@@ -38,6 +38,7 @@
     </div>
     <audio src="static/music/1-水调歌头.mp3" loop="loop" autoplay="autoplay"
     id="vd"></audio>
+
 <script src="static/js/赋诗.js"></script>
 </body>
 </html>

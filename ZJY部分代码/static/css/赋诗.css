@@ -88,12 +88,14 @@ textarea:focus{
 .btn:hover{
     background: linear-gradient(90deg, #A163F7 25%, #6F88fc 50%, #45e3ff 75%, #F5F5DC 100%);
     color: white;
-    box-shadow:black 0px 0px 10px;
+    box-shadow:silver 5px 5px 10px;
+    transition: .4s ease;
 }
 .container{
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+    top:300px ;
     padding-bottom: 5%;
 }
 .history{
@@ -102,7 +104,7 @@ textarea:focus{
     width: 150px;
     font-family: YouYuan,serif;
     font-size: 1.6em;
-    margin-top: 30px;
+    margin-top: 80px;
     text-align: center;
 }
 .ul{
@@ -179,6 +181,8 @@ textarea:focus{
     background-color: silver;
     color: black;opacity: 1;
     border-radius: 10px;
+    transition: .5s;
+    box-shadow:silver 5px 5px 10px;
 }
 .button {
     display: flex;
@@ -208,6 +212,9 @@ textarea:focus{
     background-color: rgb(211,211,211,0.4);
     border-radius: 10px;
 }
+#back_button{
+    position: fixed;
+}
 .shell_slider {
     position: relative;
     transition: transform 1s ease-in-out;
@@ -226,7 +233,9 @@ textarea:focus{
         background-size: 100% 100%;
 
     }
-
+    .history{
+        font-size: 1.1em;
+    }
 }
 @media screen and (max-width: 500px) {
 

@@ -44,6 +44,7 @@ var prev = document.getElementById("prev")
 var next = document.getElementById("next")
 var h1=document.getElementById("h1")
 var text_area = document.getElementById("text_area")
+var plus_area = document.getElementById("container-plus")
 btn.onclick = function (){
     if(writer_box.value === ' ' || title_box.value===' ' || txt.value === '' ) {
         alert('请输入数据！')
@@ -82,6 +83,7 @@ btn.onclick = function (){
             text_area.innerHTML += '<p class="text">'+cache[2][j]
         }
         h1.innerHTML = '切换诗歌'+(history_ptr-1).toString()+'/'+(history_ptr-1).toString()
+
     }
 }
 back_button.onclick = function (){
@@ -99,7 +101,7 @@ prev.onclick = function (){
     }
     var cache = history[ptr]
         text_area.innerHTML = '<h2>'+cache[0]+'</h2>'+
-                            '<p style="float:right;width: 100%" class="writer_name">'
+                            '<p style="float:right;width: 100%" class="writer_name">作者：'
                             +cache[1]
         for(var j =0;j<cache[2].length;j++){
             text_area.innerHTML += '<p class="text">'+cache[2][j]
@@ -117,7 +119,7 @@ next.onclick = function (){
         }
          var cache = history[ptr]
             text_area.innerHTML = '<h2>'+cache[0]+'</h2>'+
-                                '<p style="float:right;width: 100%" class="writer_name">'
+                                '<p style="float:right;width: 100%" class="writer_name">作者：'
                                 +cache[1]
             for(var j =0;j<cache[2].length;j++){
                 text_area.innerHTML += '<p class="text">'+cache[2][j]
@@ -167,3 +169,4 @@ function toggleSound() {
         music.play(); //没有就播放
     }
 }
+
