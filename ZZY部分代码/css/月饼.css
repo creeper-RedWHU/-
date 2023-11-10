@@ -12,7 +12,7 @@
 }
 
 #return_key img{
-    width: 120px;
+    width: 108px;
 }
 
 #head_word{
@@ -39,15 +39,19 @@
 #pop{
     visibility: hidden;
     position: fixed;
-    height: 80vh;
+    /* aspect-ratio: 33 / 25; */
     width: 80vw;
-    border: 5px solid #cda08c;
+    min-height: 80vh;
+    height: auto;
+    border: 5px solid #3c5977;
     top: 7vh;
     left: 10vw;
-    background-image: url("../img/background.jpg");
+    background-image: url("../img/background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 10px 5px 5px #cda08c92;
+    background-position: center;
+    /* box-shadow: 10px 5px 5px #3c5977b5; */
+    border-radius: 45px;
 }
 
 #pop h2{
