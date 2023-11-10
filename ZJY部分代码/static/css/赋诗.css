@@ -10,7 +10,6 @@
     background-attachment: fixed;
     width: 100%;
     position: relative;
-
 }
 h1{
     font-family: 'hdjxingshu3a356a5d68256d1',serif;
@@ -120,6 +119,7 @@ textarea:focus{
 .history_box:hover{
     box-shadow:silver 5px 5px 10px;
     cursor: pointer;
+    transition: .8s;
 }
 .ul > .li{
     display: inline-block;

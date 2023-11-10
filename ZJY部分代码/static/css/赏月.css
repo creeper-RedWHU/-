@@ -3,14 +3,13 @@
     padding: 0;
 }
 .container-fluid{
-    height: 100vh;
     background-image: url("../../img/赏月背景.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
     background-attachment: fixed;
     width: 100%;
     position: relative;
-
+    height: 100vh;
+    background-size: 100% 100%;
 }
 .img{
     display: block;
@@ -19,13 +18,10 @@
     text-align: center;
     padding-top: 20px;
 }
-.img2txt{
 
-}
 .container{
     width: 70%;
     margin:0 auto;
-
 }
 #calendar{
     width: 50px;
@@ -36,6 +32,7 @@
 }
 #calendar:hover{
     background-color:silver;
+    transition: .5s;
 }
 #important{
     margin-left: 3%;
@@ -44,11 +41,12 @@
 }
 #important:hover{
     background-color:silver;
+    transition: .5s;
 }
 #font{
     font-size: 2em;
     text-align: center;
-    margin-top: 10%;
+
     margin-bottom: 3%;
     font-family: kaiti,serif;
     font-weight: bold;
@@ -69,12 +67,60 @@ h1{
     font-size: 2.3em;
     line-height: 1.8;
     font-family: kaiti,serif;
+    cursor: default;
+    letter-spacing: 2px;
+
 }
 h2{
     font-weight: bold;
     font-size: 1.8em;
     line-height: 1.8;
     font-family: kaiti,serif;
+    cursor: default;
+    letter-spacing: 2px;
+
+}
+#h22{
+    margin-bottom: 10%;
+}
+#div{
+   border: 1px solid red;
+}
+ul{
+    list-style: none;
+    background: none;
+    clear: both;
+}
+ul li{
+    padding: 10px;
+    margin:5px;
+    background: none;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+li:hover{
+    box-shadow: 10px 10px 20px rgb(200,200,200,1);
+    transition: .5s;
+
+}
+ul>li>img{
+    width: 50%;
+}
+.textInLi{
+    text-align: center;
+}
+.title{
+   padding-top: 0;
+}
+#back_button:hover{
+    cursor: pointer;
+    background-color: rgb(211,211,211,0.4);
+    border-radius: 10px;
+}
+#back_button{
+    position: fixed;
 }
 @media screen and (max-width: 590px){
     h1{
@@ -88,4 +134,8 @@ h2{
     h2{
         font-size: 1.3em;
     }
+    #time{
+        font-size: 1.1em;
+    }
+
 }
