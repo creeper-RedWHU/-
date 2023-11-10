@@ -26,13 +26,15 @@
 } */
 .button
 {
-    background-color:#ede9db;
+    background-color:rgb(44, 58, 87);
+    /* background-color:blue; */
+
     height:800px; 
     width:100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:100px;
+    padding:60px;
     z-index: 5;
 }
 .button img
@@ -45,7 +47,7 @@
 }
 #button2
 {
-    width:40vh;
+    width:35vh;
 }
 #button3
 {
@@ -54,6 +56,7 @@
 body 
 {
     background-color: rgb(44, 58, 87);
+    /* background-color: white; */
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -69,6 +72,7 @@ body
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
 }
 .parallax img
 {
@@ -76,6 +80,7 @@ body
     top: 0;
     left: 0;
     width: 100%;
+    height: auto;
     pointer-events: none;
 }
 /* #moon 
@@ -91,21 +96,18 @@ body
     position: relative;
     top: -20vh;
     width: 0;
-    height: 0; 
     border-radius: 50%;
     object-fit: cover;
     animation: moonAppear 2s forwards;
-    z-index: 0; 
+    z-index: -5; 
 }
 
 @keyframes moonAppear {
     0% {
         width: 0;
-        height: 0; 
     }
     100% {
-        width: 50vw; 
-        height: 50vw; 
+        width: 50vw;
     }
 }
 #left1,#left2,#right1,#right2
@@ -152,7 +154,7 @@ footer
     }
     100%
     {
-        transform: translate(0, 0);
+        transform: translate(0, 100px);
     }
 }
 
@@ -186,14 +188,45 @@ footer
     }
     100%
     {
-        transform: translate(0, 0);
+        transform: translate(0, 100px);
     }
 }
 
 
-@media (max-width: 900px) {
-    #moon {
+@media (max-width: 900px)
+{
+    #moon 
+    {
       top: -35vh;
     }
   }
-  
+@media(max-width:1100px)
+{
+    .button
+    {
+        flex-direction: column;
+        height: 1600px;
+        padding: 300px;
+    }
+    #button1
+{
+    width:200px;
+    }
+    #button2
+    {
+        width:200px;
+    }
+    #button3
+    {
+        width:200px;
+    }
+}
+/* 
+@media(max-width:1100px)
+{
+    #left2,#right2
+    {
+        position: absolute;
+        bottom: 0;
+    }
+} */
