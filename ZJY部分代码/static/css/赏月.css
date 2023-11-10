@@ -62,5 +62,30 @@
     font-family: kaiti,serif;
     font-weight: bold;
     cursor: pointer;
-
+}
+h1{
+    padding-top: 200px;
+    font-weight: bold;
+    font-size: 2.3em;
+    line-height: 1.8;
+    font-family: kaiti,serif;
+}
+h2{
+    font-weight: bold;
+    font-size: 1.8em;
+    line-height: 1.8;
+    font-family: kaiti,serif;
+}
+@media screen and (max-width: 590px){
+    h1{
+        font-size: 1.7em;
+        line-height: 1.4;
+        padding-top: 100px;
+    }
+    #font{
+        font-size: 1.5em;
+    }
+    h2{
+        font-size: 1.3em;
+    }
 }
