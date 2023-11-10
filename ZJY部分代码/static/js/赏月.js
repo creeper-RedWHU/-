@@ -1,11 +1,6 @@
 /*转农历函数*/
 const toCnDate = date => date.toLocaleString('zh-u-ca-chinese', { dateStyle: 'full' }) + ' ' + date.toLocaleTimeString(0, { hour12: false });
 var moon_phase = document.getElementById("img")
-var back_button =document.getElementById("back_button")
-back_button.onclick = function (){
-    window.location.href="";
-//     这里写返回图片转入的地址
-}
 function sx(year){
     switch ((year-2020)%12){
         case 0:return '鼠';break;

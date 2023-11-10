@@ -86,10 +86,7 @@ btn.onclick = function (){
 
     }
 }
-back_button.onclick = function (){
-    window.location.href="";
-//     这里写返回图片转入的地址
-};
+
 /*prev:前调数据*/
 prev.onclick = function (){
     if(history_ptr === 1){
