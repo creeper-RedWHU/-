@@ -1,39 +1,64 @@
-.background{
-    background-color:rgba(0,0,0,0.9);
+*{
+    margin: 0;
+    padding: 0;
 }
-/*容器宽度，导航栏*/
-.container{
-    width:80%;
-    margin: 20px auto;
+.container-fluid{
+    height: 100vh;
+    background-image: url("../../img/赏月背景.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width: 100%;
+    position: relative;
 
 }
-.guide_line_font{
-    font-family: kaiti, serif;
-    color: white;
+.img{
+    display: block;
+    margin: 0 auto;
+    /*width: 100%em;*/
+}
+.img2txt{
+
+}
+.container{
+    width: 70%;
+    margin:0 auto;
+
+}
+#calendar{
+    width: 50px;
+    height: 50px;
+    margin-right: 7% ;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#calendar:hover{
+    background-color:red;
+}
+#important{
+    margin-left: 3%;
+    cursor: pointer;
+    border-radius: 50%;
+}
+#important:hover{
+    background-color:silver;
+}
+#font{
+    font-size: 2em;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 3%;
+    font-family: kaiti,serif;
+    font-weight: bold;
+    cursor: default;
+
+}
+#time{
     font-size: 1.5em;
-    opacity: 0.5;
-    margin-left: 20px;
-}
-.guide_line_font:hover{
-    opacity: 1;
+    text-align: center;
+    margin-bottom: 5%;
+    font-family: kaiti,serif;
+    font-weight: bold;
     cursor: pointer;
-}
-.right{
-    float: right;
-}
-.clearfix{
-    clear: both;
-}
-.music_img{
-    text-align: center;height: 1em;float: right;
-    margin-right: 20px;
-}
-.music_img1{
-    display: inline;
-}
-.music_img:hover{
-    cursor: pointer;
-}
-a{
-    text-decoration: none;
+
 }

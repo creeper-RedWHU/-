@@ -6,21 +6,23 @@
     <link rel="stylesheet" href="static\css\赏月.css">
 <!--    <script src="static/vue/vue.js"></script>-->
 </head>
-<body class="background">
-    <div class="container clearfix" id="app">
-        <a class="guide_line_font">看看月球</a>
-        <a class="guide_line_font right" id="right">未来一周月相日历</a>
-        <img src="img/music-off.png"
-             alt="This is an icon that decides whether to play music or not "
-             class="music_img"
-             id="img"/>
-        <audio src="static/music/FlyMeToTheMoon.mp3"
-               hidden="hidden" loop="loop"
-               autoplay="autoplay" id="audio"></audio>
-
+<body >
+<div class="container-fluid">
+<div class="container ">
+    <img src="img/图层 0.png" alt="" class="img">
+    <div id="font">
+        抬头仰望，别浪费了月亮
     </div>
-<!--    月相日历部分-->
-    <script src="static/js/赏月.js"></script>
-
+    <div id="time">
+        2023.11.9
+    </div>
+    <div style="text-align: center;margin-top: 10px">
+<!--提示小按钮区域-->
+        <img src="img/calendar.png" title="未来一周月相" id="calendar">
+        <img src="img/icons8-box-important-50.png" title="切换到当日详细信息" id="important">
+    </div>
+</div>
+</div>
+<script src="static/js/赏月.js"></script>
 </body>
 </html>
