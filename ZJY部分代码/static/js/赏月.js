@@ -178,7 +178,7 @@ function write_form(day,week){
     /*然后返回的是一个字符串，含ul和li*/
     var ans = '<ul>'
     for(var i = 0;i<7;i++){
-        ans+='<li style="text-align: center;display: inline-block" title="跳转到这一天" id="'+i.toString()+'">'+
+        ans+='<li style="text-align: center;display: inline-block" id="'+i.toString()+'">'+
             '<img src=img/赏月/'+numSwitchToName(day+i)+'200.png>'+
             '<h2 class="textInLi">星期'+weekList[(week+i)%7]+'</h2></li>'
     }
