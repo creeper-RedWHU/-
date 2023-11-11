@@ -192,7 +192,7 @@ function calendar_check(){
         switchers_ltd = 1
     }else if(switchers_ltd === 1){
         console.log('delete mode called')
-        document.getElementById("box").innerHTML = '<img src="img/icons8-box-important-50.png" title="切换到当日详细信息" id="important">' +
+        document.getElementById("box").innerHTML = '<img src="img/icons8-box-important-50.png" title="切换到当日详细信息" id="important" onclick="change_mode()">' +
                     '<img src="img/calendar.png" title="未来一周月相" id="calendar" onclick="calendar_check()">'
         switchers_ltd = 0
     }
