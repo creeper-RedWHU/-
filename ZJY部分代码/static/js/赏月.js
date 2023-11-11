@@ -175,7 +175,7 @@ function numSwitchToName(num){
 function write_form(day,week){
     /*接受的是一个数字类型的农历时间：起始时间*/
     /*然后返回的是一个字符串，含ul和li*/
-    var ans = '<ul>'
+    var ans = '<ul id="ullist" style="opacity: 0">'
     for(var i = 0;i<7;i++){
         ans+='<li style="text-align: center;display: inline-block" id="'+i.toString()+'">'+
             '<img src=img/赏月/'+numSwitchToName(day+i)+'200.png>'+
@@ -185,15 +185,23 @@ function write_form(day,week){
     return ans
 }
 var switchers_ltd = 0
-function calendar_check(){
-    if(switchers_ltd === 0){
-        console.log("insert mode called")
-        document.getElementById("box").innerHTML+='<h1 class="title" id="title">未来七天月相</h1>'+write_form(calculate_new_birth(lunarDate.slice(5,7)),week)
+async function calendar_check() {
+    if (switchers_ltd === 0) {
+        document.getElementById("box").innerHTML += '<h1 class="title" id="title" style="opacity:0">未来七天月相</h1>' + write_form(calculate_new_birth(lunarDate.slice(5, 7)), week)
         switchers_ltd = 1
-    }else if(switchers_ltd === 1){
-        console.log('delete mode called')
+        for (var time = 0; time < 100; time++) {
+            document.getElementById("title").style.opacity = time / 100
+            document.getElementById("ullist").style.opacity = time / 100
+            await sleep(10)
+        }
+    } else if (switchers_ltd === 1) {
+        for (var time = 0; time < 100; time++) {
+            document.getElementById("title").style.opacity =1- time / 100
+            document.getElementById("ullist").style.opacity = 1-time / 100
+            await sleep(10)
+        }
         document.getElementById("box").innerHTML = '<img src="img/icons8-box-important-50.png" title="切换到当日详细信息" id="important" onclick="change_mode()">' +
-                    '<img src="img/calendar.png" title="未来一周月相" id="calendar" onclick="calendar_check()">'
+            '<img src="img/calendar.png" title="未来一周月相" id="calendar" onclick="calendar_check()">'
         switchers_ltd = 0
     }
 }
