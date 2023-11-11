@@ -17,7 +17,6 @@ function sx(year){
         case 11:return '猪';break;
     }
 }
-var calendar = document.getElementById("calendar")
 var important_icon = document.getElementById("important")
 var time_stamp = new Date()
 var year = time_stamp.getFullYear(); //获取完整的年份(4位)
@@ -121,7 +120,7 @@ function name_now_calc(date){
     else{return '残月'}
 }
 /*切换模式*/
-important_icon.onclick =async function change_mode(){
+async function change_mode(){
     console.log('change mode called')
     if(bools === 0){
         important_icon.title = '切换到当日月相'
@@ -185,18 +184,16 @@ function write_form(day,week){
     ans+='</ul>'
     return ans
 }
-var switchers = 0
-calendar.onclick = function (){
-    if(switchers === 0){
-        var box = document.getElementById("box")
+var switchers_ltd = 0
+function calendar_check(){
+    if(switchers_ltd === 0){
         console.log("insert mode called")
-        box.innerHTML+='<h1 class="title">未来七天月相</h1>'+write_form(calculate_new_birth(lunarDate.slice(5,7)),week)
-        switchers = 1
-    }else{
-        var box = document.getElementById("box")
+        document.getElementById("box").innerHTML+='<h1 class="title" id="title">未来七天月相</h1>'+write_form(calculate_new_birth(lunarDate.slice(5,7)),week)
+        switchers_ltd = 1
+    }else if(switchers_ltd === 1){
         console.log('delete mode called')
-        box.innerHTML = '<img src="img/calendar.png" title="未来一周月相" id="calendar">' +
-                '<img src="img/icons8-box-important-50.png" title="切换到当日详细信息" id="important">'
-        switchers = 0
+        document.getElementById("box").innerHTML = '<img src="img/icons8-box-important-50.png" title="切换到当日详细信息" id="important">' +
+                    '<img src="img/calendar.png" title="未来一周月相" id="calendar" onclick="calendar_check()">'
+        switchers_ltd = 0
     }
 }
