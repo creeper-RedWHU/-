@@ -18,7 +18,6 @@
     text-align: center;
     padding-top: 20px;
 }
-
 .container{
     width: 70%;
     margin:0 auto;
@@ -46,12 +45,10 @@
 #font{
     font-size: 2em;
     text-align: center;
-
     margin-bottom: 3%;
     font-family: kaiti,serif;
     font-weight: bold;
     cursor: default;
-
 }
 #time{
     font-size: 1.5em;

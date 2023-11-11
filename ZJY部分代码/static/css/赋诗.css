@@ -12,7 +12,10 @@
     position: relative;
 }
 h1{
-    font-family: 'hdjxingshu3a356a5d68256d1',serif;
+    font-family:kaiti,serif;
+    padding-top:10%;
+    padding-bottom: 3%;
+    font-size: 2.5em;
     cursor: default;
 }
 h2{
@@ -39,7 +42,6 @@ textarea {
 textarea:focus{
     box-shadow:silver 0px 0px 10px;
     border-radius: 6px;
-
 }
 .title_box{
     text-align: center;
@@ -225,7 +227,40 @@ textarea:focus{
     padding: 10px;
 }
 /*明信片部分*/
-
+.window{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    background-color: rgb(201,201,201,0.85);
+    z-index: 20;    /*背景层*/
+    text-align: center;
+}
+.window:target{
+    display: block;
+}
+.window_content{
+    width: 600px;
+    height: 400px;
+    margin: 10% auto;
+    z-index: 30;    /*置顶窗口层*/
+    background-image: url("../../img/明信片.png");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+#closeButton{
+    float: left;
+    cursor: pointer;
+    position: sticky;
+}
+#closeButton:hover{
+    background-color: rgb(200,200,200,0.5);
+    transition: .5s;
+}
 @media screen and (max-width: 970px) {
     #container{
         background-image: url("/img/背景窄.jpg");

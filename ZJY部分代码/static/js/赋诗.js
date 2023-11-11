@@ -4,6 +4,9 @@ txt.onclick = function (){
     txt.style.opacity = 1
     txt.style.border ='1px solid black'
 }
+function sleep(time){
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
 /*诗歌的标题*/
 var title_box = document.getElementById('title_box')
 txt.onblur = function (){
@@ -38,13 +41,39 @@ var ptr =1
 var name ='' //现存诗歌的诗人
 var history = [[0,0,0]] // 保存的诗歌：来做历史记录
 var history_ptr = 1
-var back_button = document.getElementById("back_button")
 var btn =document.getElementById("btn")
 var prev = document.getElementById("prev")
 var next = document.getElementById("next")
 var h1=document.getElementById("h1")
 var text_area = document.getElementById("text_area")
 var plus_area = document.getElementById("container-plus")
+var close_card = document.getElementById("close")
+/*写贺卡函数*/
+async function write_card(title, writer, poem, close_card) {
+    windows.style.opacity = '0'
+    windows.style.display = 'block'
+    var area = document.getElementById("window_content")
+    document.getElementById("window_content").innerHTML = ' '
+    area.innerHTML = '<img src="img/icons8-close-26.png" id="closeButton" onclick="closeFn()">'
+    area.innerHTML += '<h1>' + title + '</h1>' + '<h2 style="font-size: 1.6em">' + writer + '</h2>'
+    for (var item = 0; item < poem.length; item++) {
+        area.innerHTML += '<h4 class="text">' + poem[item] + '</h4>'
+    }
+    for (var k = 0; k <= 100; k++) {
+        windows.style.opacity = k / 100
+        await sleep(10)
+    }
+
+}
+var windows =document.getElementById("window")
+async function closeFn() {
+    for (var k = 0; k <= 100; k++) {
+        document.getElementById("window").style.opacity = 1-k / 100
+        await sleep(10)
+    }
+    document.getElementById("window").style.display = 'none'
+    document.getElementById("window_content").innerHTML = ' '
+}
 btn.onclick = function (){
     if(writer_box.value === ' ' || title_box.value===' ' || txt.value === '' ) {
         alert('请输入数据！')
@@ -83,7 +112,8 @@ btn.onclick = function (){
             text_area.innerHTML += '<p class="text">'+cache[2][j]
         }
         h1.innerHTML = '切换诗歌'+(history_ptr-1).toString()+'/'+(history_ptr-1).toString()
-
+        window.location.href="#window";
+        write_card(cache[0],cache[1],cache[2],close_card)
     }
 }
 
@@ -153,6 +183,13 @@ dele.onclick = function (){
         text_area.innerHTML = '<img src="img/icons8-alert-30.png" alt="" ><h2>当前还没有创作诗歌！</h2>'
         h1.innerHTML = '切换诗歌'+'0'+'/'+'0'
     }
+}
+text_area.onclick = function (){
+    if(history_ptr>1){
+    write_card(history[history_ptr-1][0],history[history_ptr-1][1],history[history_ptr-1][2])
+    }else{
+        alert('当前没有创作历史，无法生成明信片！')
     }
+}
 
 
