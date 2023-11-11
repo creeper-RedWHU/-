@@ -249,13 +249,14 @@ textarea:focus{
     background-image: url("../../img/明信片.png");
     background-repeat: no-repeat;
     background-size:100% 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 #closeButton{
     float: left;
     cursor: pointer;
     position: sticky;
+    padding: 10px;
 }
 #closeButton:hover{
     background-color: rgb(200,200,200,0.5);

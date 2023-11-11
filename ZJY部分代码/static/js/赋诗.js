@@ -186,10 +186,8 @@ dele.onclick = function (){
 }
 text_area.onclick = function (){
     if(history_ptr>1){
-    write_card(history[history_ptr-1][0],history[history_ptr-1][1],history[history_ptr-1][2])
+    write_card(history[history_ptr - 1][0], history[history_ptr - 1][1], history[history_ptr - 1][2])
     }else{
         alert('当前没有创作历史，无法生成明信片！')
     }
 }
-
-
