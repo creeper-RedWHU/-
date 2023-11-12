@@ -49,6 +49,7 @@
     font-family: kaiti,serif;
     font-weight: bold;
     cursor: default;
+    color: white;
 }
 #time{
     font-size: 1.5em;
@@ -57,6 +58,7 @@
     font-family: kaiti,serif;
     font-weight: bold;
     cursor: pointer;
+    color:white;
 }
 h1{
     padding-top: 200px;
@@ -66,9 +68,12 @@ h1{
     font-family: kaiti,serif;
     cursor: default;
     letter-spacing: 2px;
+    color: white;
 
 }
 h2{
+    mix-blend-mode: difference;
+    color: white;
     font-weight: bold;
     font-size: 1.8em;
     line-height: 1.8;
@@ -107,6 +112,8 @@ ul>li>img{
 }
 .textInLi{
     text-align: center;
+    mix-blend-mode: difference;
+    color: white;
 }
 .title{
    padding-top: 0;
