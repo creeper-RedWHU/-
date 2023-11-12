@@ -34,12 +34,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:60px;
     z-index: 5;
 }
 .button img
 {
     z-index:10;
+    padding:50px 0;
 }
 #button1
 {
@@ -85,18 +85,8 @@ body
     height: auto;
     /* pointer-events: none; */
 }
-/* #moon 
-{
-    position: relative;
-    top:-15vh;
-    width: 600px; 
-    height: 600px; 
-    border-radius: 50%;
-    object-fit: cover;
-} */
 #moon {
     position: fixed;
-    /* top: -20vh; */
     left: 50vw;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -107,19 +97,22 @@ body
     z-index: -5; 
 }
 
-@keyframes moonAppear {
-    0% {
+@keyframes moonAppear /*月亮从一个点放大的动画效果*/
+{
+    0% 
+    {
         width: 0;
     }
-    100% {
-        width: 50vw;
+    100% 
+    {
+        width: 80vw;
     }
 }
 #left1,#left2,#right1,#right2
 {
     z-index: 1;
 } 
-footer
+footer/*孤电子队copyright*/
 {
     background-color: #000000;
     color: #b7b7b7;
@@ -136,7 +129,7 @@ footer
     object-fit: cover; 
     animation: an_left1 5s forwards; 
 } 
-@keyframes an_left1 
+@keyframes an_left1 /*四张图从四个角往中间靠拢的动画效果*/
 {
     0%{
         transform: translate(-300px, -100px);
@@ -192,7 +185,7 @@ footer
     transform: translate(-100%,-100%);
     bottom: 0px;
     right: 0px;
-    z-index: 2;
+    z-index: 15;
     object-fit: cover; 
     animation: an_right2 5s forwards; 
 } 
@@ -208,40 +201,116 @@ footer
 }
 
 
+
+.intro
+{
+    background-color:rgb(22, 168, 194) ;
+    /* background-color: rgb(44, 58, 87); */
+    color: white;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    line-height: 2em;
+}
+.intro h2
+{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.intro p
+{
+    text-align: center;
+    line-height: 3em;
+}
+
+
 @media (max-width: 900px)
 {
-    #moon 
+    .intro
     {
-      /* top: -35vh; */
+        background-color:rgb(22, 168, 194) ;
+        /* background-color: rgb(44, 58, 87); */
+        color: white;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        line-height: 3em;
     }
-  }
-@media(max-width:1100px)
+    .intro h2
+    {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    .intro p
+    {
+        font-size: 0.55em;
+        text-align: center;
+        line-height: 3em;
+    }
+    
+}
+
+
+
+
+
+@media (max-width: 900px)/*对五张img媒体查询，略微放大*/
+{
+    @keyframes moonAppear 
+    {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 120vw;
+        }
+    }
+
+    #left2,#left1,#right2,#right1
+    {
+        /* height:500px; */
+        width: 110vw;
+    }
+  
+}
+
+
+
+
+
+
+
+@media(max-width:900px)/*按钮媒体查询，纵向排列*/
 {
     .button
     {
         flex-direction: column;
-        height: 1600px;
-        padding: 300px;
+        justify-content: center;
+        align-items: center;
+        height: 1500px;
+        padding:50px 0;
     }
+
+    
     #button1
-{
-    width:200px;
+    {
+        width:200px;
+        margin: 25px 0;
     }
     #button2
     {
         width:200px;
+        margin: 25px 0;
     }
     #button3
     {
         width:200px;
-    }
-}
-
-@media(max-width:1100px)
-{
-    #left2,#right2
-    {
-        position: absolute;
-        bottom: 0;
+        margin: 25px 0;
     }
 }
