@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-     width: 100vw; 
+    width: 100vw; 
     height: 100vh;
     background-size: 100vw 280vh;
    /* background-color: blanchedalmond; */
@@ -12,7 +12,7 @@ body{
 }
 /* 设置 section 和 mainpart 的样式 */
 section {
-    position:fixed; /* 设置相对定位，以便内部的绝对定位元素参照 */
+    position:fixed; 
     height: 100%;
     width: 100%;
     padding: 20px;
@@ -20,17 +20,15 @@ section {
 }
 
 .mainpart {
-    position:relative; /* 设置相对定位，以便内部的绝对定位元素参照 */
+    position:relative; 
 }
 
-/* 设置 decoration 的样式 */
 .decoration {
-    position: absolute; /* 设置为绝对定位 */
+    position: absolute; 
     width: 100%;
     height: 100%;
-    top: 0; /* 从顶部开始定位 */
-    left: 0; /* 从左侧开始定位 */
-    /* 其他样式属性，例如 z-index 等 */
+    top: 0; 
+    left: 0; 
 }
 .decoration div{
     position: absolute;
@@ -46,12 +44,12 @@ section {
 }
 
 .decoration div:nth-child(1){
-    left:20%;
+    left:50%;
     animation:driftdown 15s linear infinite;
-    animation-delay: -5s;
+    animation-delay: -1s;
 }
 .decoration div:nth-child(2){
-    left:50%;
+    left:20%;
     animation:driftdown 15s linear infinite;
     animation-delay: -2s;
 }
@@ -98,14 +96,15 @@ section {
     }
     
 }
+
 #backkeybackground {
     display: flex;
     z-index: 2;
     align-items: center;
-    justify-content: center; /* 使内容在水平方向上居中 */
+    justify-content: center; 
     position: fixed;
     top: 0;
-    height: 6.5vh; /* 设置固定的高度 */
+    height: 6.5vh; 
     width:100vw;
     padding: 1em ;
     margin: -1em;
@@ -115,11 +114,11 @@ section {
     height: 6.5vh;
     width: auto;
     left: 0;
-    margin-left: 0vw;
+    margin-left: -1vw;
 }
 
 #i {
-    height: 6.5vh; /* 适当调整图像的高度 */
+    height: 6.5vh;
     width: 100vw;
     margin-left: -5vw;
     margin-top: -1em;
@@ -138,7 +137,7 @@ section {
     height: 60vh; 
     margin:2vh 2vw;
 /* animation: moveUpDown 2s ease infinite; 使用动画效果，让图片移动 */
-    transition: transform 0.3s ease; /* 添加过渡效果，使得移动更加平滑 */
+    transition: transform 0.3s ease; 
     animation: occur 3s forwards; 
 }
 
@@ -188,10 +187,11 @@ section {
     border-radius: 5px; 
     margin-left: 1vw;
     margin-top:-0.2vmin;
-  }
-  #Results{
+}
+
+#Results{
     margin-left: 1vmax;
     font-size: 1.7em;
     font-family:'cyjianxk3a780ea3a52571f';
     color: rgba(0, 0, 0, 0.61);
-  }
+}
