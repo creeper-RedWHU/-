@@ -1,0 +1,197 @@
+*{
+    margin: o;
+    padding: 0;
+}
+body{
+    width: 100vw; 
+    height: 100vh;
+    background-size: 100vw 280vh;
+   /* background-color: blanchedalmond; */
+   background-image: url(../img/背景.png);
+   background-repeat: no-repeat;
+}
+/* 设置 section 和 mainpart 的样式 */
+section {
+    position:fixed; 
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    /* height: 100%; */
+}
+
+.mainpart {
+    position:relative; 
+}
+
+.decoration {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    top: 0; 
+    left: 0; 
+}
+.decoration div{
+    position: absolute;
+    display: block;
+}
+.decoration2{
+    transform: scale(1.5)rotateY(180deg);
+    /* filter: blur(2px); */
+}
+.decoration3{
+    transform: scale(0.8)rotateY(180deg);
+    filter: blur(3px);
+}
+
+.decoration div:nth-child(1){
+    left:50%;
+    animation:driftdown 15s linear infinite;
+    animation-delay: -1s;
+}
+.decoration div:nth-child(2){
+    left:20%;
+    animation:driftdown 15s linear infinite;
+    animation-delay: -2s;
+}
+.decoration div:nth-child(3){
+    left:70%;
+    animation:driftdown 15s linear infinite;
+    animation-delay: -4s;
+}
+.decoration div:nth-child(4){
+    left:0%;
+    animation:driftdown 25s linear infinite;
+    /* animation-delay: -7s; */
+}
+.decoration div:nth-child(5){
+    left:95%;
+    animation:driftdown 18s linear infinite;
+    animation-delay: -2s;
+}
+.decoration div:nth-child(6){
+    left:30%;
+    animation:driftdown 26s linear infinite;
+    /* animation-delay: -7s; */
+}
+
+@keyframes driftdown {
+    0%{
+        top:-10%;
+    }
+    20%{
+        transform: translateX(-2vw) rotate(45deg);
+    }
+    40%{
+        transform: translateX(-2vw) rotate(90deg);
+    }
+    60%{
+        transform: translateX(-2vw) rotate(135deg);
+    }
+    80%{
+        transform: translateX(-2vw) rotate(180deg);
+    }
+    100%{
+        top: 110%;
+        transform: translateX(-2vw) rotate(225deg);
+    }
+    
+}
+
+#backkeybackground {
+    display: flex;
+    z-index: 2;
+    align-items: center;
+    justify-content: center; 
+    position: fixed;
+    top: 0;
+    height: 6.5vh; 
+    width:100vw;
+    padding: 1em ;
+    margin: -1em;
+}
+  
+#backkey{
+    height: 6.5vh;
+    width: auto;
+    left: 0;
+    margin-left: -1vw;
+}
+
+#i {
+    height: 6.5vh;
+    width: 100vw;
+    margin-left: -5vw;
+    margin-top: -1em;
+}
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2vw;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh; 
+}
+
+.image {
+    height: 60vh; 
+    margin:2vh 2vw;
+/* animation: moveUpDown 2s ease infinite; 使用动画效果，让图片移动 */
+    transition: transform 0.3s ease; 
+    animation: occur 3s forwards; 
+}
+
+@keyframes occur 
+{
+    0%{
+        transform: translate(0px, -300px);
+    }
+    100%
+    {
+        transform: translate(0px, 0px);
+    }
+} 
+
+.image:hover {
+    transform: translateY(2vh); 
+    z-index: 1;
+    cursor: pointer;
+/* transform: scale(1.1); */
+}
+
+.searchanswer {
+    display: flex;
+    align-items: center;
+    justify-content:left; 
+    position: fixed;
+    bottom: -0.1vmin;
+    left: 0;
+    height: 10vh; 
+    margin-left: 12vw;
+    width: 80vw;
+    background-color: aliceblue;
+    z-index: 2;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px; 
+    border: 0.2vmin solid #e8f622;
+    /* background: linear-gradient(to bottom,rgb(240, 240, 240), rgba(254, 254, 254, 0.61)); */
+    background-color: antiquewhite;
+    
+}
+#Input {
+    width: 12em;
+    height: 1em;
+    padding: 0.5em; 
+    font-size: 1vmax;
+    border: 1px solid #427284; 
+    border-radius: 5px; 
+    margin-left: 1vw;
+    margin-top:-0.2vmin;
+}
+
+#Results{
+    margin-left: 1vmax;
+    font-size: 1.7em;
+    font-family:'cyjianxk3a780ea3a52571f';
+    color: rgba(0, 0, 0, 0.61);
+}
