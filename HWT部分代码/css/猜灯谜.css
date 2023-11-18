@@ -1,28 +1,30 @@
-*{
-    margin: o;
-    padding: 0;
-}
 body{
     width: 100vw; 
-    height: 100vh;
-    background-size: 100vw 280vh;
+    height: 100vh; 
+    background-repeat: no-repeat;/*防止换行后背景堆叠*/
+    background-size: 100vw 330vh;
+    /*设置背景图像高度为窗口高度3.3倍使得灯笼换行后背景不出现空白*/
    /* background-color: blanchedalmond; */
    background-image: url(../img/背景.png);
-   background-repeat: no-repeat;
+  
 }
-/* 设置 section 和 mainpart 的样式 */
+
 section {
-    position:fixed; 
+    position:fixed;
+    /*脱离文挡流，在不灯笼空间的情况下实现彩带全屏漂浮且位置不随页面移动而移动*/
     height: 100%;
     width: 100%;
     padding: 20px;
-    /* height: 100%; */
 }
 
-.mainpart {
-    position:relative; 
+.decoration div{
+    position: absolute;/*使彩带元素相对section定位，使animation能够正常实现 */
 }
 
+.decoration div>img{
+    width: 8vh;/*当窗口大小变化时彩带图像大小也应有变化*/
+}
+/* 最大的彩带板块与其它尺寸的彩带漂浮效果的实现 */
 .decoration {
     position: absolute; 
     width: 100%;
@@ -30,53 +32,61 @@ section {
     top: 0; 
     left: 0; 
 }
-.decoration div{
-    position: absolute;
-    display: block;
+.decoration1{
+    margin-left: -5vw;/*适当偏移避免彩带重叠*/
+    transform: scale(0.9)rotateY(180deg);
+    filter: blur(1px);
 }
 .decoration2{
-    transform: scale(1.5)rotateY(180deg);
-    /* filter: blur(2px); */
+    margin-left: 10vw;
+    transform: scale(0.7)rotateY(180deg);
+    filter: blur(2px);
 }
 .decoration3{
-    transform: scale(0.8)rotateY(180deg);
+    margin-top: -10vh;
+    margin-left: -10vw;
+    transform: scale(0.8)rotateY(10deg);
     filter: blur(3px);
 }
-
+.decoration3 div>img{
+    transform: scale(0.6);
+}
+/* 对每一种彩带赋予不同属性,使动效更自然 */
 .decoration div:nth-child(1){
-    left:50%;
-    animation:driftdown 15s linear infinite;
-    animation-delay: -1s;
+    left:50%;/*设定彩带1位置*/
+    animation:driftdown 17s linear infinite;
+    /* 使用动画特效driftdown 持续时间17s 匀速 无限次循环*/
+    animation-delay: -1s;/*避免需要等待其开始运动*/
 }
 .decoration div:nth-child(2){
     left:20%;
     animation:driftdown 15s linear infinite;
-    animation-delay: -2s;
+    animation-delay: -5s;
 }
 .decoration div:nth-child(3){
     left:70%;
-    animation:driftdown 15s linear infinite;
+    animation:driftdown 14s linear infinite;
     animation-delay: -4s;
 }
 .decoration div:nth-child(4){
     left:0%;
-    animation:driftdown 25s linear infinite;
-    /* animation-delay: -7s; */
+    animation:driftdown 20s linear infinite;
+    animation-delay: -2s;
 }
 .decoration div:nth-child(5){
-    left:95%;
+    left:90%;
     animation:driftdown 18s linear infinite;
-    animation-delay: -2s;
+    animation-delay: -3s;
 }
 .decoration div:nth-child(6){
     left:30%;
     animation:driftdown 26s linear infinite;
-    /* animation-delay: -7s; */
+    animation-delay: -1s;
 }
-
+/* 飘落效果的实现 */
 @keyframes driftdown {
     0%{
-        top:-10%;
+        top:-20%;
     }
     20%{
         transform: translateX(-2vw) rotate(45deg);
@@ -91,56 +101,55 @@ section {
         transform: translateX(-2vw) rotate(180deg);
     }
     100%{
-        top: 110%;
+        top: 120%;
         transform: translateX(-2vw) rotate(225deg);
     }
     
 }
-
-#backkeybackground {
+/* 顶栏实现 */
+#toppart {
     display: flex;
     z-index: 2;
-    align-items: center;
-    justify-content: center; 
     position: fixed;
     top: 0;
     height: 6.5vh; 
     width:100vw;
-    padding: 1em ;
-    margin: -1em;
+    margin-top: -0.5em;
 }
-  
+/* 设置返回键大小为相对大小 */
 #backkey{
     height: 6.5vh;
     width: auto;
     left: 0;
-    margin-left: -1vw;
+    /* margin-left: -1vw; */
 }
-
+/* 灯笼悬挂处 */
 #i {
     height: 6.5vh;
-    width: 100vw;
-    margin-left: -5vw;
-    margin-top: -1em;
+    width: 80%;
+    margin-left: 3.8%;
 }
 
 .image-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 2vw;
+    display: flex;/*使灯笼水平排列*/
+    flex-wrap: wrap;/*允许窗口宽度变化时灯笼自动换行*/
     justify-content: center;
-    align-items: flex-start;
     height: 100vh; 
 }
 
-.image {
+.image-container div>img{
     height: 60vh; 
     margin:2vh 2vw;
-/* animation: moveUpDown 2s ease infinite; 使用动画效果，让图片移动 */
     transition: transform 0.3s ease; 
     animation: occur 3s forwards; 
 }
 
+.image-container div:hover{
+    transform: translateY(2vh); 
+    z-index: 1;/*使hover后灯笼仍在悬挂处下方*/
+    cursor: pointer;/*鼠标形状变化*/
+}
+/* 灯笼出现的动效实现 */
 @keyframes occur 
 {
     0%{
@@ -151,23 +160,15 @@ section {
         transform: translate(0px, 0px);
     }
 } 
-
-.image:hover {
-    transform: translateY(2vh); 
-    z-index: 1;
-    cursor: pointer;
-/* transform: scale(1.1); */
-}
-
+/*搜索以及答案出现处实现*/
 .searchanswer {
-    display: flex;
-    align-items: center;
-    justify-content:left; 
+    display: flex;/*使搜索结果出现在搜索框右侧*/
+    align-items: center;/*使元素位置居中*/
+    justify-content:left; /*搜索栏靠左侧*/
     position: fixed;
-    bottom: -0.1vmin;
-    left: 0;
+    bottom: -0.1vmin;/*遮盖下边界*/
     height: 10vh; 
-    margin-left: 12vw;
+    margin-left: 10vw;
     width: 80vw;
     background-color: aliceblue;
     z-index: 2;
@@ -178,20 +179,21 @@ section {
     background-color: antiquewhite;
     
 }
+
 #Input {
-    width: 12em;
-    height: 1em;
+    width: 13em;
+    height: 25%;
     padding: 0.5em; 
+    padding-right: -1em;
     font-size: 1vmax;
     border: 1px solid #427284; 
     border-radius: 5px; 
     margin-left: 1vw;
-    margin-top:-0.2vmin;
 }
 
 #Results{
     margin-left: 1vmax;
-    font-size: 1.7em;
-    font-family:'cyjianxk3a780ea3a52571f';
+    font-size: 3vmin;
+    font-family:'RS_XingKai3a80a3b3272571f';
     color: rgba(0, 0, 0, 0.61);
 }
