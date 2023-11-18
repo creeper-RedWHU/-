@@ -26,10 +26,11 @@ var time_area = document.getElementById("time")
 var lunarDate = toCnDate(new Date()).slice(4,14)
 var lunarDate_add = lunarDate.slice(0,2)+sx(year)+lunarDate.slice(2)
 var month_str = (month<10)?'0'+ month.toString(): month.toString()
-var day_str = (month<10)?'0'+day.toString():day.toString()
+var day_str = (day<10)?'0'+day.toString():day.toString()
 var week = time_stamp.getDay();   //获取当前星期X(0-6,0代表星期天)
 var weekList = ['天','一','二','三','四','五','六']
 var dateList = [year.toString()+'.'+month_str+'.'+day_str+' 星期'+weekList[week],lunarDate_add]
+var dateList_special=[]
 var ptr = 0
 var bools = 0//当bools为0：说明此时是月亮
 var name_lst = ['新月','蛾眉月','上弦月','渐盈凸月','满月','渐亏凸月','下弦月','残月']
@@ -74,12 +75,23 @@ window.onload = function (){
     moon_phase_image.src = url_img
 }
 time_area.onclick = function (){
-    if(ptr<dateList.length-1){
-        ptr+=1
-    }else{
-        ptr = 0
+    if(dateList_special.length === 0) {
+        if (ptr < dateList.length - 1) {
+            ptr += 1
+        } else {
+            ptr = 0
+        }
+        time_area.innerHTML = dateList[ptr]
     }
-    time_area.innerHTML = dateList[ptr]
+    else
+    {
+        if (ptr < dateList_special.length - 1) {
+            ptr += 1
+        } else {
+            ptr = 0
+        }
+        time_area.innerHTML = dateList_special[ptr]
+    }
 }
 function sleep(time){
     return new Promise((resolve) => setTimeout(resolve, time));
@@ -177,7 +189,7 @@ function write_form(day,week){
     /*然后返回的是一个字符串，含ul和li*/
     var ans = '<ul id="ullist" style="opacity: 0">'
     for(var i = 0;i<7;i++){
-        ans+='<li style="text-align: center;display: inline-block" id="'+i.toString()+'">'+
+        ans+='<li style="text-align: center;display: inline-block" id="'+i.toString()+'"onclick="transforma('+i+')">'+
             '<img src=img/赏月/'+numSwitchToName(day+i)+'200.png>'+
             '<h2 class="textInLi">星期'+weekList[(week+i)%7]+'</h2></li>'
     }
@@ -204,4 +216,80 @@ async function calendar_check() {
             '<img src="img/calendar.png" title="未来一周月相" id="calendar" onclick="calendar_check()">'
         switchers_ltd = 0
     }
+}
+async function change_mode_special(date)
+{
+    console.log('change mode called')
+    if(bools === 0){
+        var lunarDateSpecial = toCnDate(new Date(new Date().getTime() + date * 24 * 3600 * 1000)).slice(4,14)
+        var time_stamp_2 = new Date(new Date(new Date().getTime() + date * 24 * 3600 * 1000))
+        var week_2 = time_stamp_2.getDay()
+        var month_2=(time_stamp_2.getMonth()+1<10)?'0'+ (time_stamp_2.getMonth()+1).toString():(time_stamp_2.getMonth()+1).toString()
+        var lunarDate_add_2 = lunarDateSpecial.slice(0,2)+sx(year)+lunarDateSpecial.slice(2)
+        var day_str_2= (time_stamp_2.getDate()<10)?'0'+time_stamp_2.getDate().toString():time_stamp_2.getDate().toString()
+        dateList_special=[time_stamp_2.getFullYear().toString()+'.'+
+        month_2+'.'+ day_str_2+' 星期'+weekList[week_2],lunarDate_add_2]
+        time_area.innerHTML = dateList_special[ptr]
+        important_icon.title = '切换到当日月相'
+        var moon_phase_image = document.getElementById("image")
+        for(var i=0;i<=100;i++){
+            moon_phase_image.style.opacity = 1-i/100
+            await sleep(10)
+        }
+        moon_phase_image.style.display = 'none'
+        moon_phase.style.opacity = 0
+        var time_now = calculate_new_birth(lunarDateSpecial.slice(5,7))
+        /*超出下个月的判断未加*/
+        console.log(time_now)
+        var time_new_phase = thisMax-time_now+1;
+        var time_full_phase = ((15-time_now)>0)?(15-time_now):(thisMax-time_now+15)
+        if(time_full_phase === 0){time_full_phase = '今'}
+        else if(time_full_phase === 1){time_full_phase = '明'}
+        if(time_new_phase === 0){time_new_phase = '今'}
+        else if(time_new_phase === 1){time_new_phase = '明'}
+        var name_now =name_now_calc(time_now)
+        moon_phase.innerHTML = '<p><h1>'+name_now+'</h1></p>'+
+            '<p><h2>下一次新月：'+time_new_phase.toString()+'天'+'</h2></p>'+
+            '<p><h2 id="h22">下一次满月：'+time_full_phase.toString()+'天'+'</h2></p>'
+        for(var j=0;j<=100;j++){
+            moon_phase.style.opacity = j/100
+            await sleep(10)
+        }
+        url_img = 'img/赏月/'+lunarDateSpecial.slice(5,7)+'400.png'
+        console.log(url_img)
+
+    }else{
+        var lunarDateSpecial = toCnDate(new Date(new Date().getTime() + date * 24 * 3600 * 1000)).slice(4,14)
+        var time_stamp_2 = new Date(new Date(new Date().getTime() + date * 24 * 3600 * 1000))
+        var week_2 = time_stamp_2.getDay()
+        var month_2=(time_stamp_2.getMonth()+1<10)?'0'+ (time_stamp_2.getMonth()+1).toString():(time_stamp_2.getMonth()+1).toString()
+        var lunarDate_add_2 = lunarDateSpecial.slice(0,2)+sx(year)+lunarDateSpecial.slice(2)
+        var day_str_2= (time_stamp_2.getDate()<10)?'0'+time_stamp_2.getDate().toString():time_stamp_2.getDate().toString()
+        dateList_special=[time_stamp_2.getFullYear().toString()+'.'+
+        month_2+'.'+ day_str_2+' 星期'+weekList[week_2],lunarDate_add_2]
+        console.log(dateList_special)
+        time_area.innerHTML = dateList_special[ptr]
+        important_icon.title = '切换到当日详细信息'
+        for(var j=0;j<=100;j++) {
+            moon_phase.style.opacity = 1 - j / 100
+            await sleep(10)
+        }
+        moon_phase.innerHTML = '<img src="img/图层 0.png" alt="" id="image" style="opacity: 0">'
+        var moon_phase_image = document.getElementById("image")
+
+        url_img = 'img/赏月/'+lunarDateSpecial.slice(5,7)+'400.png'
+        moon_phase_image.src = url_img
+        console.log(url_img)
+        moon_phase.style.opacity = 1
+        for(var k=0;k<=100;k++) {
+            moon_phase_image.style.opacity = k / 100
+            await sleep(10)
+        }
+
+    }
+    bools =1-bools
+}
+function transforma(i)
+{
+    change_mode_special(i)
 }
