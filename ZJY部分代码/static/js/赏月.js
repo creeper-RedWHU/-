@@ -133,47 +133,58 @@ function name_now_calc(date){
 }
 /*切换模式*/
 async function change_mode(){
-    console.log('change mode called')
-    if(bools === 0){
-        important_icon.title = '切换到当日月相'
-        var moon_phase_image = document.getElementById("image")
-        for(var i=0;i<=100;i++){
-            moon_phase_image.style.opacity = 1-i/100
-            await sleep(10)
+    if(dateList_special.length === 0) {
+        console.log('change mode called')
+        if (bools === 0) {
+            important_icon.title = '切换到当日月相'
+            var moon_phase_image = document.getElementById("image")
+            for (var i = 0; i <= 100; i++) {
+                moon_phase_image.style.opacity = 1 - i / 100
+                await sleep(10)
+            }
+            moon_phase_image.style.display = 'none'
+            moon_phase.style.opacity = 0
+            var time_now = calculate_new_birth(lunarDate.slice(5, 7))
+            var time_new_phase = thisMax - time_now + 1
+            var time_full_phase = ((15 - time_now) > 0) ? (15 - time_now) : (thisMax - time_now + 15)
+            if (time_full_phase === 0) {
+                time_full_phase = '今'
+            } else if (time_full_phase === 1) {
+                time_full_phase = '明'
+            }
+            if (time_new_phase === 0) {
+                time_new_phase = '今'
+            } else if (time_new_phase === 1) {
+                time_new_phase = '明'
+            }
+            var name_now = name_now_calc(time_now)
+            moon_phase.innerHTML = '<p><h1>' + name_now + '</h1></p>' +
+                '<p><h2>下一次新月：' + time_new_phase.toString() + '天' + '</h2></p>' +
+                '<p><h2 id="h22">下一次满月：' + time_full_phase.toString() + '天' + '</h2></p>'
+            for (var j = 0; j <= 100; j++) {
+                moon_phase.style.opacity = j / 100
+                await sleep(10)
+            }
+        } else {
+            important_icon.title = '切换到当日详细信息'
+            for (var j = 0; j <= 100; j++) {
+                moon_phase.style.opacity = 1 - j / 100
+                await sleep(10)
+            }
+            moon_phase.innerHTML = '<img src="img/图层 0.png" alt="" id="image" style="opacity: 0">'
+            var moon_phase_image = document.getElementById("image")
+            moon_phase_image.src = url_img
+            moon_phase.style.opacity = 1
+            for (var k = 0; k <= 100; k++) {
+                moon_phase_image.style.opacity = k / 100
+                await sleep(10)
+            }
         }
-        moon_phase_image.style.display = 'none'
-        moon_phase.style.opacity = 0
-        var time_now = calculate_new_birth(lunarDate.slice(5,7))
-        var time_new_phase = thisMax-time_now+1
-        var time_full_phase = ((15-time_now)>0)?(15-time_now):(thisMax-time_now+15)
-        if(time_full_phase === 0){time_full_phase = '今'}
-        else if(time_full_phase === 1){time_full_phase = '明'}
-        if(time_new_phase === 0){time_new_phase = '今'}
-        else if(time_new_phase === 1){time_new_phase = '明'}
-        var name_now =name_now_calc(time_now)
-        moon_phase.innerHTML = '<p><h1>'+name_now+'</h1></p>'+
-                                '<p><h2>下一次新月：'+time_new_phase.toString()+'天'+'</h2></p>'+
-                                '<p><h2 id="h22">下一次满月：'+time_full_phase.toString()+'天'+'</h2></p>'
-        for(var j=0;j<=100;j++){
-            moon_phase.style.opacity = j/100
-            await sleep(10)
-        }
-    }else{
-        important_icon.title = '切换到当日详细信息'
-        for(var j=0;j<=100;j++) {
-            moon_phase.style.opacity = 1 - j / 100
-            await sleep(10)
-        }
-        moon_phase.innerHTML = '<img src="img/图层 0.png" alt="" id="image" style="opacity: 0">'
-        var moon_phase_image = document.getElementById("image")
-        moon_phase_image.src = url_img
-        moon_phase.style.opacity = 1
-        for(var k=0;k<=100;k++) {
-            moon_phase_image.style.opacity = k / 100
-            await sleep(10)
-        }
+        bools = 1 - bools
     }
-    bools =1-bools
+    else{
+        transforma(cali())
+    }
 }
 function numSwitchToName(num){
     var lst = ['一','二','三','四','五','六','七','八','九','十']
@@ -256,7 +267,7 @@ async function change_mode_special(date)
             await sleep(10)
         }
         url_img = 'img/赏月/'+lunarDateSpecial.slice(5,7)+'400.png'
-        console.log(url_img)
+        console.log('finn')
 
     }else{
         var lunarDateSpecial = toCnDate(new Date(new Date().getTime() + date * 24 * 3600 * 1000)).slice(4,14)
@@ -276,7 +287,6 @@ async function change_mode_special(date)
         }
         moon_phase.innerHTML = '<img src="img/图层 0.png" alt="" id="image" style="opacity: 0">'
         var moon_phase_image = document.getElementById("image")
-
         url_img = 'img/赏月/'+lunarDateSpecial.slice(5,7)+'400.png'
         moon_phase_image.src = url_img
         console.log(url_img)
@@ -288,8 +298,20 @@ async function change_mode_special(date)
 
     }
     bools =1-bools
+    console.log('finn')
 }
 function transforma(i)
 {
     change_mode_special(i)
+}
+function cali(){
+    var head =0
+    while (weekList[head]!==dateList[0][13]){
+        head++
+    }
+    var count=(head+1)%7
+    while(weekList[count]!==dateList_special[0][13]){
+        count= (count+1)%7
+    }
+    return count
 }
