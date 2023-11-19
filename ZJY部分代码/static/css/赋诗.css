@@ -264,17 +264,21 @@ textarea:focus{
 }
 @media screen and (max-width: 970px) {
     #container{
-        background-image: url("/img/背景窄.jpg");
+        background-image: url("../../img/背景窄.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
-
     }
     .history{
         font-size: 1.1em;
     }
-}
-@media screen and (max-width: 500px) {
-
-
+    #h1{
+        font-size: 2em;
+    }
+    #next,#prev{
+        font-size: 60px;
+    }
+    h2{
+        font-size: 1.5em;
+    }
 }
 

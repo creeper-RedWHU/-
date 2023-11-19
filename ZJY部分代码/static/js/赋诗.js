@@ -54,7 +54,7 @@ async function write_card(title, writer, poem, close_card) {
     windows.style.display = 'block'
     var area = document.getElementById("window_content")
     document.getElementById("window_content").innerHTML = ' '
-    area.innerHTML = '<img src="img/icons8-close-26.png" id="closeButton" onclick="closeFn()">'
+    area.innerHTML = '<img src="../../img/icons8-close-26.png" id="closeButton" onclick="closeFn()">'
     area.innerHTML += '<h1>' + title + '</h1>' + '<h2 style="font-size: 1.6em">' + writer + '</h2>'
     for (var item = 0; item < poem.length; item++) {
         area.innerHTML += '<h4 class="text">' + poem[item] + '</h4>'
@@ -180,7 +180,7 @@ dele.onclick = function (){
         h1.innerHTML = '切换诗歌'+(ptr).toString()+'/'+(history_ptr-1).toString()
     }else{
         ptr = history_ptr = 1
-        text_area.innerHTML = '<img src="img/icons8-alert-30.png" alt="" ><h2>当前还没有创作诗歌！</h2>'
+        text_area.innerHTML = '<img src="../../templates/icons8-alert-30.png" alt="" ><h2>当前还没有创作诗歌！</h2>'
         h1.innerHTML = '切换诗歌'+'0'+'/'+'0'
     }
 }
