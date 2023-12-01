@@ -99,13 +99,13 @@ ul li{
     background: none;
     display: inline-block;
     cursor: pointer;
-    border: 1px solid red;
+
     border-radius: 10px;
 }
 li:hover{
     box-shadow: 10px 10px 20px rgb(200,200,200,1);
+    border: 1px solid silver;
     transition: .5s;
-
 }
 ul>li>img{
     width: 50%;
@@ -141,5 +141,8 @@ ul>li>img{
     #time{
         font-size: 1.1em;
     }
-
+    .img{
+        width: 50%;
+        height: 50%;
+    }
 }
